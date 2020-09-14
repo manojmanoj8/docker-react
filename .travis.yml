@@ -1,0 +1,11 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t manoj/docker-react -f Dockerfile.dev .
+
+
+
+script:
+    - docker container run manoj/docker-react npm run test -- --coverage
